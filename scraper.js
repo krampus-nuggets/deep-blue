@@ -40,4 +40,6 @@ let searchURL = "<url>";
   });
   // Print all object props
   console.dir(venueData);
+  // Kill process when done
+  await headless.close()
 })();
