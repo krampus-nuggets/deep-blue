@@ -3,3 +3,5 @@
 
 import puppeteer from "puppeteer";
 
+let searchURL = "<url-here>";
+
