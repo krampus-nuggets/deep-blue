@@ -1,0 +1,14 @@
+{
+  "name": "deep-blue",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"WAAAAAAH: You didn't write any tests for me :(\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^1.20.0"
+  }
+}
