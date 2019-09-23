@@ -30,7 +30,7 @@ let searchURL = "<url>";
         venueJSON.title = venElm.querySelector("span.sr-hotel__name").innerText.trim();
         venueJSON.score = venElm.querySelector("div.bui-review-score__badge").innerText;
         venueJSON.reviewCount = venElm.querySelector("div.bui-review-score__text").innerText;
-        venueJSON.address = venElm.querySelector("div.sr_card_address_line").innerText;
+        venueJSON.address = venElm.querySelector("a.bui-link").innerText.replace("  Show on map ", "").trim();
       }
       catch (exception){
 
