@@ -1,48 +1,31 @@
 // Deep Blue Scraper - krampus-nuggets
 // https://github.com/krampus-nuggets
 
-const puppeteer = require('puppeteer');;
+const puppeteer = require("puppeteer");
 
-let searchURL = "<url-here>";
+let searchURL = "<url>";
 
-( async() => {
-  // Define headless browser
-  const headless = await puppeteer.launch({ headless: false }); // Set headless browser true | false
-  const pageViewer = await headless.newPage();
-  await pageViewer.setViewport({ width: 1366, height: 768 }); // Define viewing device size
-  await pageViewer.goto(searchURL); // Define URL for puppeteer to digest
+(async () => {
+  const headless = await puppeteer.launch({ headless: true });
+  const pageLauncher = await headless.newPage();
+  await pageLauncher.setViewport({ width: 1920, height: 1080 });
+  await pageLauncher.goto(searchURL);
 
-  let venueData = await pageViewer.evaluate(
-    () => {
-      // Array for storing Venue Values
-      let venues = [];
-      // Define value container within root
-      let venueElement = document.querySelectorAll( "div.sr_item" );
-      // Exfil required data
-      venueElement.forEach(
-        (elementValue) => {
+  // Main Data Retriever
+  let venueData = await pageLauncher.evaluate(() => {
+    let venues = [];
+    let venueElements = document.querySelectorAll("div.sr_property_block[data-hotelId]");
+    venueElements.forEach((venElm) => {
+      let venueJSON = {};
+      try {
+        venueJSON.title = venElm.querySelector("span.sr-hotel__name").innerText;
+      }
+      catch (exception){
 
-          let venueJSON = {};
-
-          try {
-            venueJSON.title = elementValue.querySelector("span.sr-hotel__title").innerText;
-            venueJSON.score = elementValue.querySelector("div.review-score-badge").innerText;
-            venueJSON.reviewCount = elementValue.querySelector("div.bui-review-score__text").innerText;
-            venueJSON.address = elementValue.querySelector("a.href").innerText;
-
-            if ( elementValue.querySelector("span.bui-u-sr-only")) {
-              venueJSON.price = elementValue.querySelector("span.bui-u-sr-only").innerText;
-            }
-          }
-          catch (exception) {
-
-          }
-          venues.push(venueJSON);
-        }
-      );
-      return venues;
-    }
-  );
-  console.dir(venueData)
-}
-) ();
+      }
+      venues.push(venueJSON);
+    });
+    return venues;
+  });
+  console.dir(venueData);
+})();
