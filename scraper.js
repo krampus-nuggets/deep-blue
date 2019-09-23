@@ -28,6 +28,7 @@ let searchURL = "<url>";
       try {
         // Scrape for Title
         venueJSON.title = venElm.querySelector("span.sr-hotel__name").innerText;
+        venueJSON.score = venElm.querySelector("div.bui-review-score__badge").innerText;
       }
       catch (exception){
 
