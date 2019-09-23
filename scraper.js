@@ -3,6 +3,9 @@
 
 const puppeteer = require("puppeteer");
 
+// Example Link
+// https://www.booking.com/searchresults.en-gb.html?label=gen173nr-1FCAEoggI46AdIM1gEaPsBiAEBmAEJuAEXyAEM2AEB6AEB-AELiAIBqAIDuALWgaTsBcACAQ&sid=161aee9a54851cac5480d4abbea3e659&sb=1&src=index&src_elem=sb&error_url=https%3A%2F%2Fwww.booking.com%2Findex.en-gb.html%3Flabel%3Dgen173nr-1FCAEoggI46AdIM1gEaPsBiAEBmAEJuAEXyAEM2AEB6AEB-AELiAIBqAIDuALWgaTsBcACAQ%3Bsid%3D161aee9a54851cac5480d4abbea3e659%3Bsb_price_type%3Dtotal%26%3B&ss=Cape+Town%2C+Western+Cape%2C+South+Africa&is_ski_area=&checkin_monthday=1&checkin_month=10&checkin_year=2019&checkout_monthday=5&checkout_month=10&checkout_year=2019&group_adults=1&group_children=0&no_rooms=1&b_h4u_keep_filters=&from_sf=1&ss_raw=Cape+Town&ac_position=0&ac_langcode=en&ac_click_type=b&dest_id=-1217214&dest_type=city&iata=CPT&place_id_lat=-33.924801&place_id_lon=18.419701&search_pageview_id=c7717aeb94fb0225&search_selected=true&search_pageview_id=c7717aeb94fb0225&ac_suggestion_list_length=5&ac_suggestion_theme_list_length=0&order=
+
 // Assign URL to let variable
 let searchURL = "<url>";
 
