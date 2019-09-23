@@ -31,6 +31,12 @@ let searchURL = "<url>";
         venueJSON.score = venElm.querySelector("div.bui-review-score__badge").innerText;
         venueJSON.reviewCount = venElm.querySelector("div.bui-review-score__text").innerText;
         venueJSON.address = venElm.querySelector("a.bui-link").innerText.replace("  Show on map ", "").trim();
+        if (venElm.querySelector("div.bui-price-display__value")) {
+          venueJSON.price = venElm.querySelector("div.bui-price-display__value").innerText;
+        }
+        else {
+          venueJSON.price = "No Price"
+        }
       }
       catch (exception){
 
