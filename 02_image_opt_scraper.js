@@ -65,6 +65,8 @@ async function opt_scraper() {
 }
 
 async function og_scraper() {
+  var timeStart = performance.now();
+
   // Chromium Headless - true | false browser window
   const headless = await puppeteer.launch({ headless: false });
   // Launch scraper on New Page
@@ -108,6 +110,9 @@ async function og_scraper() {
   console.dir(venueData);
   // Kill process when done
   await headless.close()
+
+  var timeStop = performance.now();
+  console.log("OG Time = " + (timeStop - timeStart));
 }
 
 
