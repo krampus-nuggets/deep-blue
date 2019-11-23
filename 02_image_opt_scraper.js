@@ -74,7 +74,7 @@ async function og_scraper() {
   // Launch scraper on New Page
   const pageLauncher = await headless.newPage();
   // Set "monitor" size for pageLauncher
-  await pageLauncher.setViewport({ width: 1920, height: 1080 });
+  await pageLauncher.setViewport({ width: 1366, height: 768 });
   // Launch page from variable holding URL
   await pageLauncher.goto(searchURL);
 
