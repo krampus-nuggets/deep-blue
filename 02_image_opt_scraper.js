@@ -20,12 +20,12 @@ async function opt_scraper() {
 
   await tabLauncher.setRequestInterception(true);
 
-  tabLauncher.on('request', (req) => {
-    if(req.resourceType() == 'image') {
-      req.abort;
+  tabLauncher.on('request', (request) => {
+    if(['image'].indexOf(request.resourceType()) !== -1) {
+      request.abort();
     }
     else {
-      req.continue();
+      request.continue();
     }
   })
 
