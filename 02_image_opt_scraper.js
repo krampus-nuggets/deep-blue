@@ -1,6 +1,8 @@
 // Deep Blue Scraper - krampus-nuggets
 // https://github.com/krampus-nuggets
 
+'use strict';
+
 const puppeteer = require("puppeteer");
 const { performance } = require("perf_hooks");
 
