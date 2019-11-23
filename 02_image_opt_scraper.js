@@ -66,7 +66,7 @@ async function opt_scraper() {
 
 async function og_scraper() {
   // Chromium Headless - true | false browser window
-  const headless = await puppeteer.launch({ headless: true });
+  const headless = await puppeteer.launch({ headless: false });
   // Launch scraper on New Page
   const pageLauncher = await headless.newPage();
   // Set "monitor" size for pageLauncher
