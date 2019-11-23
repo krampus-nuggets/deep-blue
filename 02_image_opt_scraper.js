@@ -115,4 +115,9 @@ async function og_scraper() {
   console.log("OG Time = " + (timeStop - timeStart));
 }
 
+async function compareScrapers() {
+  await og_scraper();
+  await opt_scraper();
+}
 
+compareScrapers();
