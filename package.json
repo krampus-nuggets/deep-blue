@@ -1,7 +1,7 @@
 {
   "name": "deep-blue",
   "version": "0.0.1",
-  "description": "",
+  "description": "Complete user-creation for Airtable",
   "main": "index.js",
   "scripts": {
     "test": "echo \"WAAAAAAH: You didn't write any tests for me :(\" && exit 1"
