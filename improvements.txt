@@ -1,1 +1,3 @@
 Remove images = +/- 6 second reduction
+Remove css = +/- 4 second reduction
+Remove css & images = +/- 8 second reduction
