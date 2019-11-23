@@ -15,9 +15,6 @@ async function opt_scraper() {
   const headless = await puppeteer.launch({ headless: false });
   const tabLauncher = await headless.newPage();
 
-  await tabLauncher.setViewport({ width: 1920, height: 1080 });
-  await tabLauncher.goto(searchURL);
-
   // START - Remove images from scraping process
 
   await tabLauncher.setRequestInterception(true);
@@ -32,6 +29,9 @@ async function opt_scraper() {
   })
 
   // END
+
+  await tabLauncher.setViewport({ width: 1366, height: 768 });
+  await tabLauncher.goto(searchURL);
 
   let venueData = await tabLauncher.evaluate(() => {
     let venues = [];
