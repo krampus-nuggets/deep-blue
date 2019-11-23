@@ -13,7 +13,7 @@ async function opt_scraper() {
   var timeStart = performance.now();
 
   const headless = await puppeteer.launch({ headless: false });
-  const tabLauncher = await headless.newPage();
+  const tabLauncher = await headless.newPage();  
 
   // START - Remove images from scraping process
 
@@ -118,8 +118,13 @@ async function og_scraper() {
 }
 
 async function compareScrapers() {
-  await og_scraper();
-  await opt_scraper();
+  try {
+    await og_scraper();
+    await opt_scraper();
+  }
+  catch(e) {
+    console.log(e);
+  }
 }
 
 compareScrapers();
