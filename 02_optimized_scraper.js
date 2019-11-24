@@ -12,7 +12,7 @@ let searchURL = "https://www.booking.com/searchresults.en-gb.html?label=affnetaw
 async function opt_scraper() {
   var timeStart = performance.now();
 
-  const headless = await puppeteer.launch({ headless: false });
+  const headless = await puppeteer.launch({ headless: true });
   const tabLauncher = await headless.newPage();  
 
   // START - Remove images from scraping process
@@ -20,7 +20,7 @@ async function opt_scraper() {
   await tabLauncher.setRequestInterception(true);
 
   tabLauncher.on("request", (request) => {
-    if(["stylesheet", "images"].indexOf(request.resourceType()) !== -1) {
+    if(["stylesheet", "images", "script"].indexOf(request.resourceType()) !== -1) {
       request.abort();
     }
     else {
@@ -70,7 +70,7 @@ async function og_scraper() {
   var timeStart = performance.now();
 
   // Chromium Headless - true | false browser window
-  const headless = await puppeteer.launch({ headless: false });
+  const headless = await puppeteer.launch({ headless: true });
   // Launch scraper on New Page
   const pageLauncher = await headless.newPage();
   // Set "monitor" size for pageLauncher
