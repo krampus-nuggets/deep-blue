@@ -33,6 +33,12 @@ async function paginated_scraper() {
   await tabLauncher.setViewport({ width: 1366, height: 768 });
   await tabLauncher.goto(searchURL);
 
+  // START - 
+
+
+
+  // END
+
   let venueData = await tabLauncher.evaluate(() => {
     let venues = [];
     let venueElements = document.querySelectorAll("div.sr_property_block[data-hotelId]");
